@@ -102,9 +102,9 @@ module.exports = {
 
 ## Customize theme for your brand
 
+### Brand
+
 - Put your own logo to `static/images/logo.png`
-- Override style variables from `src/scss/_variables.scss` file
-- Override css theme by editing `src/scss/_theme.scss`
 - Configure top menu links, Progressive Web App name, and more by editing `./gatsby-config.js` file
 
 ```js
@@ -174,3 +174,10 @@ module.exports = {
   ],
 };
 ```
+
+### CSS
+
+To customize scss you have to override `gatsby-browser.js` and make sure you import your own files (an example is given in starter https://github.com/fireblogcms/gatsby-starter-fireblog-basic)
+
+- Override style variables from `src/scss/_variables.scss` file
+- Override css theme by editing `src/scss/_theme.scss`

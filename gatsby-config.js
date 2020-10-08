@@ -39,7 +39,12 @@ module.exports = themeOptions => {
   };
 
   config.plugins = [
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      // options: {
+      //   inscludePaths: [ themeOptions.sassIncludePaths, 'src/scss' ],
+      // },
+    },
     {
       resolve: 'gatsby-source-graphql',
       options: {
