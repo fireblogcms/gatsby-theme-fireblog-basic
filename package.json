@@ -1,6 +1,5 @@
 {
   "name": "gatsby-theme-fireblog-basic",
-  "private": true,
   "description": "A Gatbsy theme for fireblog",
   "version": "3.0.0",
   "author": "Yann",
@@ -44,7 +43,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fireblogcms/gatbsy-starter-fireblog"
+    "url": "git+https://github.com/fireblogcms/gatsby-theme-fireblog-basic"
   },
   "devDependencies": {
     "gatsby": "^2.1.10",
