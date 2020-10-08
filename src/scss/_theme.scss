@@ -1,0 +1,158 @@
+@import "./_variables.scss";
+
+.title,
+.subtitle {
+  // all posts title in black.
+  & > a {
+    color: $black;
+    font-weight: 500;
+  }
+}
+
+.hero,
+.hero.is-small {
+  background: linear-gradient(
+    to right,
+    $header-background-gradient-1,
+    $header-background-gradient-2
+  );
+  .hero-body {
+    text-align: center;
+    padding: 1rem;
+    padding-bottom: 70px;
+    .subtitle {
+      color: $white;
+      max-width: 800px;
+      margin: auto;
+    }
+    .title {
+      font-weight: 800;
+      color: $white;
+      a {
+        color: $white;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+.post-list {
+  .post:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .post {
+    padding: 15px 0;
+    .title {
+      margin-bottom: 0;
+    }
+    .read-more {
+      color: $black;
+    }
+  }
+  .post-teaser {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: justify;
+    &.content {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.block-title {
+  position: relative;
+  text-transform: uppercase;
+  &:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 60px;
+    background: #d1d1d1;
+    bottom: -10px;
+    left: 0;
+  }
+}
+
+aside {
+  .recent-posts {
+    .post-title {
+      margin-bottom: 0;
+      a {
+        font-weight: 600;
+      }
+    }
+    margin-bottom: 30px;
+  }
+  .socials {
+    li {
+      display: inline;
+      margin-right: 10px;
+      img {
+        max-width: 50px;
+      }
+    }
+  }
+}
+
+.post-detail {
+  .date {
+    margin-bottom: 30px;
+  }
+  .post-image {
+    padding-bottom: 30px;
+  }
+  oembed {
+    width: 100%;
+  }
+  .socials {
+    margin-top: 50px;
+    li {
+      display: inline;
+      margin-right: 20px;
+      img {
+        max-width: 50px;
+      }
+    }
+  }
+}
+
+.date-clock {
+  position: relative;
+  top: 1px;
+  padding-right: 2px;
+}
+
+.content {
+  text-align: justify;
+  font-size: 17px;
+  line-height: 1.6;
+  // Bulma set img width to 100% by default, we dont want that.
+  img {
+    width: auto;
+  }
+  blockquote {
+    position: relative;
+    &:after {
+      content: "\201C";
+      position: absolute;
+      top: 0em;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 3rem;
+      height: 2rem;
+      font: 6em/1.08em "PT Sans", sans-serif;
+      color: #666;
+      text-align: center;
+    }
+  }
+}
+// Added rules to make HTML tables responsive
+@media screen and (max-width: 768px){
+  .table{
+    overflow: scroll;
+  }
+}
+
+.iframely-api-container {
+  width: 100%;
+}

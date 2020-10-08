@@ -1,0 +1,19 @@
+/* litteral variables */
+$black: #000;
+$white: #fff;
+$brand-color: #338aff;
+$header-background-gradient-1: $brand-color;
+$header-background-gradient-2: scale-color($brand-color, $lightness: 20%);
+
+/* 
+Bulma variables customization 
+@see https://bulma.io/documentation/customize/variables/
+*/
+$primary: $brand-color;
+$link: $primary;
+$navbar-background-color: $primary;
+$navbar-item-color: $white;
+$navbar-item-hover-color: $white;
+$navbar-item-active-color: $navbar-item-color;
+$navbar-item-hover-background-color: lighten($primary, 5);
+$navbar-burger-color: $white;
