@@ -31,6 +31,12 @@ gatsby new my-themed-fireblog https://github.com/fireblogcms/gatsby-starter-fire
 cd my-themed-fireblog
 ```
 
+Create a `.env` file copied from the `.env.template` file and set your environment variables
+
+```shell
+cp .env.template .env
+```
+
 ## For an existing site
 
 If you already have a site you'd like to add the blog theme to, you can manually configure it.
