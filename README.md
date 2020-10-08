@@ -28,7 +28,7 @@ If you're creating a new site and want to use the blog theme, you can use the bl
 
 ```shell
 gatsby new my-themed-fireblog https://github.com/fireblogcms/gatsby-starter-fireblog-basic
-cd gatsby-starter-fireblog-basic
+cd my-themed-fireblog
 ```
 
 ## For an existing site
