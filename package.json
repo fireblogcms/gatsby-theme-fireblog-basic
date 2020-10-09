@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-fireblog-basic",
-  "description": "A Gatbsy theme for fireblog",
-  "version": "3.0.0",
+  "description": "A basic Gatbsy theme for fireblog",
+  "version": "3.0.2",
   "author": "Yann",
   "scripts": {
     "build": "gatsby build",
@@ -36,6 +36,8 @@
   "keywords": [
     "fireblog",
     "gatsby",
+    "gatsby-plugin",
+    "gatsby-theme",
     "amp",
     "pwa"
   ],
