@@ -21,7 +21,7 @@ function RecentPosts({ location, posts, blogPath }) {
                   <div className="image">
                     {post.thumbnail && (
                       <Link to={`${blogPath}/post/${post.slug}/`}>
-                        <img loading="lazy" src={post.thumbnail.url} />
+                        <img loading="lazy" src={post.thumbnail.url} alt="" />
                       </Link>
                     )}
                   </div>

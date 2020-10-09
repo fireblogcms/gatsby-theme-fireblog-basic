@@ -31,7 +31,7 @@ function PostTemplate({ data, location, pageContext }) {
         </div>
         {post.image && (
           <div className="post-image">
-            <img loading="lazy" src={post.image.url} />
+            <img loading="lazy" src={post.image.url} alt="" />
           </div>
         )}
         <div
