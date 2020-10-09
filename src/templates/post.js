@@ -4,7 +4,8 @@ import Layout from '../components/Layout';
 import HTMLMetadata from '../components/HTMLMetadata';
 import ClockIcon from '../components/ClockIcon';
 
-function PostTemplate({ data, location }) {
+function PostTemplate({ data, location, pageContext }) {
+  const { blogPath } = pageContext;
   const { blog, post, recentPosts } = data.fireblog;
   return (
     <Layout
@@ -12,6 +13,7 @@ function PostTemplate({ data, location }) {
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
+      blogPath={blogPath}
     >
       <HTMLMetadata
         title={post.title}
