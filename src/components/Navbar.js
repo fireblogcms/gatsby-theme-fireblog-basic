@@ -42,6 +42,7 @@ function Navbar() {
             onClick={() => setShowMobileMenu(!showMobileMenu)}
             className={burgerClassNames}
             data-target="navbarMenuHero"
+            role="presentation"
           >
             <span></span>
             <span></span>

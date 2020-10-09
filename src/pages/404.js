@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../components/Layout';
 import HTMLMetadata from '../components/HTMLMetadata';
 import { Link } from 'gatsby';
-import { recentPosts } from '../utils/graphQLFragments';
 
 function NotFoundPage({ location }) {
   return (

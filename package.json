@@ -1,14 +1,8 @@
 {
   "name": "gatsby-theme-fireblog-basic",
   "description": "A basic Gatbsy theme for fireblog",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "author": "Yann",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "serve": "gatsby serve"
-  },
   "peerDependencies": {
     "gatsby": "^2.1.10",
     "react": "^16.8.2",
@@ -48,12 +42,13 @@
     "url": "git+https://github.com/fireblogcms/gatsby-theme-fireblog-basic"
   },
   "devDependencies": {
+    "eslint-config-react-app": "^5.2.1",
     "gatsby": "^2.1.10",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
     "husky": ">=1",
     "lint-staged": ">=8",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   },
   "husky": {
     "hooks": {

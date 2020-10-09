@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = themeOptions => {
   const config = {};
 
@@ -82,6 +84,10 @@ module.exports = themeOptions => {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
+        content: [
+          path.join(process.cwd(), 'src/**/!(*.d).{ts,js,jsx,tsx}'),
+          path.join(__dirname, 'src/**/!(*.d).{ts,js,jsx,tsx}'),
+        ],
         // protect .content class from Bulma
         whitelist: ['iframely-api-container'],
         whitelistPatternsChildren: [/^content$/, /^pagination$/],

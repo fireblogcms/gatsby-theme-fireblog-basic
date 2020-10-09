@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import HTMLMetadata from '../components/HTMLMetadata';
 import ClockIcon from '../components/ClockIcon';
-import { recentPosts } from '../utils/graphQLFragments';
 
 function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;

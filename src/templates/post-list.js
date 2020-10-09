@@ -4,7 +4,6 @@ import Layout from '../components/Layout';
 import HTMLMetadata from '../components/HTMLMetadata';
 import Pagination from '../components/Pagination';
 import ClockIcon from '../components/ClockIcon';
-import { recentPosts } from '../utils/graphQLFragments';
 
 function PostListTemplate({ data, location, pageContext }) {
   const postsCount = pageContext.postsCount;
