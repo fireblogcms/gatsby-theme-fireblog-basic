@@ -10,6 +10,7 @@ function Layout({
   headerSubtitle,
   location,
   recentPosts,
+  blogPath,
 }) {
   return (
     <div className="layout">
@@ -29,7 +30,11 @@ function Layout({
             <div className="column is-one-third">
               <aside>
                 <section className="section">
-                  <RecentPosts location={location} posts={recentPosts} />
+                  <RecentPosts
+                    location={location}
+                    posts={recentPosts}
+                    blogPath={blogPath}
+                  />
                   <Socials />
                 </section>
               </aside>

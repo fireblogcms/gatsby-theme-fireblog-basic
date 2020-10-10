@@ -81,7 +81,8 @@ module.exports = {
 | `graphqlEndpoint`     | `''`          | Endpoint to your graphql account (see https://fireblogcms) => required                 |
 | `blogId`              | `''`          | Blog id to publich => required                                                         |
 | `analyticsTrackingId` | `''`          | Google Analytics Tracking ID (UA-xxxx) => optional                                     |
-| `manifestOptions`     | `''`          | PWA manifest customization from "gatsby-plugin-manifest" (example bellow) => optionnal |
+| `blogPath`            | `'/'`         | Blog index path => optional                                                            |
+| `manifestOptions`     | `{}`          | PWA manifest customization from "gatsby-plugin-manifest" (example bellow) => optionnal |
 
 ### Example configuration
 
@@ -164,6 +165,7 @@ module.exports = {
         graphqlEndpoint: process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT, // required
         blogId: process.env.GATSBY_BLOG_ID, // required
         analyticsTrackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID, // optinonal
+        blogPath: '/',
         manifestOptions: {
           icon: `static/images/logo.png`,
           // name of the application when site

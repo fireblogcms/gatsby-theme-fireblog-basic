@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-function RecentPosts({ location, posts }) {
+function RecentPosts({ location, posts, blogPath }) {
   // Hide recent posts on homepage for mobile
   const classes = classNames({
     'recent-posts': true,
@@ -20,8 +20,8 @@ function RecentPosts({ location, posts }) {
                 <div className="column is-one-quarter">
                   <div className="image">
                     {post.thumbnail && (
-                      <Link to={`/post/${post.slug}/`}>
-                        <img loading="lazy" src={post.thumbnail.url} />
+                      <Link to={`${blogPath}/post/${post.slug}/`}>
+                        <img loading="lazy" src={post.thumbnail.url} alt="" />
                       </Link>
                     )}
                   </div>
@@ -30,7 +30,9 @@ function RecentPosts({ location, posts }) {
                   <div>
                     <h4 className="post-title title is-6">
                       {' '}
-                      <Link to={`/post/${post.slug}/`}>{post.title}</Link>
+                      <Link to={`${blogPath}/post/${post.slug}/`}>
+                        {post.title}
+                      </Link>
                     </h4>
                     <div>
                       <small>

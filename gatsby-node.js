@@ -10,6 +10,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
   const config = require('./gatsby-config')(themeOptions);
   const blogPost = require.resolve(`./src/templates/post.js`);
   const blogPostList = require.resolve(`./src/templates/post-list.js`);
+  const blogPath =
+    !themeOptions.blogPath || themeOptions.blogPath === '/'
+      ? ''
+      : themeOptions.blogPath;
 
   const postsFilter = { blog: { eq: themeOptions.blogId } };
   const { data } = await graphql(
@@ -23,8 +27,14 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     { filter: postsFilter }
   );
   if (!data || !data.fireblog.postsCount) {
+    if (!themeOptions.blogId) {
+      report.error(
+        `Fireblog: No blog id provided, please check your theme options or ".env" file configuration ! (https://github.com/fireblogcms/gatsby-theme-fireblog-basic#theme-options)`
+      );
+      return;
+    }
     report.error(
-      `Fireblog: no posts found for blog ${themeOptions.blogId} check your env file configuration !`
+      `Fireblog: no posts found for blog "${themeOptions.blogId}", please check your theme options or ".env" file configuration ! (https://github.com/fireblogcms/gatsby-theme-fireblog-basic#theme-options)`
     );
     return;
   }
@@ -73,7 +83,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
     /**
      * Create a pagination page for this post list
      */
-    let pagePath = page === 1 ? '/' : `/pages/${page}/`;
+    let pagePath = page === 1 ? `${blogPath}/` : `${blogPath}/pages/${page}/`;
     let fullUrl = `${process.env.GATSBY_SITE_URL}${
       pagePath === '/' ? '' : pagePath
     }`;
@@ -89,6 +99,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
         blog: themeOptions.blogId,
         page: page,
         url: fullUrl,
+        blogPath,
       },
     });
 
@@ -97,7 +108,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
      */
     const { posts } = data.fireblog;
     posts.forEach(post => {
-      const pagePath = `/post/${post.slug}/`;
+      const pagePath = `${blogPath}/post/${post.slug}/`;
       createPage({
         path: pagePath,
         component: blogPost,
@@ -105,6 +116,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
           blog: themeOptions.blogId,
           slug: post.slug,
           url: `${process.env.GATSBY_SITE_URL}${pagePath}`,
+          blogPath,
         },
       });
     });
@@ -114,10 +126,10 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
   }
 
   createRedirect({
-    fromPath: `/pages/1`,
+    fromPath: `${blogPath}/pages/1`,
     isPermanent: false,
     redirectInBrowser: true,
-    toPath: `/`,
+    toPath: blogPath,
   });
 };
 

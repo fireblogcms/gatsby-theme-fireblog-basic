@@ -6,7 +6,7 @@ import Pagination from '../components/Pagination';
 import ClockIcon from '../components/ClockIcon';
 
 function PostListTemplate({ data, location, pageContext }) {
-  const postsCount = pageContext.postsCount;
+  const { postsCount, blogPath } = pageContext;
   const blog = data.fireblog.blog;
   const posts = data.fireblog.posts;
   const recentPosts = data.fireblog.recentPosts;
@@ -19,6 +19,7 @@ function PostListTemplate({ data, location, pageContext }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
       image={blog.image ? blog.image.url : null}
+      blogPath={blogPath}
     >
       <HTMLMetadata
         location={location}
@@ -32,14 +33,16 @@ function PostListTemplate({ data, location, pageContext }) {
             <div className="post columns" key={post.slug}>
               {post.thumbnail && (
                 <div className="column is-one-third">
-                  <Link to={`/post/${post.slug}/`}>
-                    <img loading="lazy" src={post.thumbnail.url} />
+                  <Link to={`${blogPath}/post/${post.slug}/`}>
+                    <img loading="lazy" src={post.thumbnail.url} alt="" />
                   </Link>
                 </div>
               )}
               <div className="column">
                 <h2 className="title is-3">
-                  <Link to={`/post/${post.slug}/`}>{post.title}</Link>
+                  <Link to={`${blogPath}/post/${post.slug}/`}>
+                    {post.title}
+                  </Link>
                 </h2>
                 <div className="date">
                   <small>
@@ -54,7 +57,7 @@ function PostListTemplate({ data, location, pageContext }) {
                 </div>
                 <Link
                   className="read-more button is-light"
-                  to={`/post/${post.slug}/`}
+                  to={`${blogPath}/post/${post.slug}/`}
                 >
                   {readMoreText}
                 </Link>
