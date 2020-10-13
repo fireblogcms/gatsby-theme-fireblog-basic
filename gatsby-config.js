@@ -32,11 +32,11 @@ module.exports = themeOptions => {
     // @see components/socials.js
     // Use an empty string as value to disable a specific social network
     socials: {
-      linkedin: 'https://www.linkedin.com/',
-      instagram: 'https://www.instagram.com/',
-      twitter: 'https://twitter.com/',
-      facebook: 'https://www.facebook.com/',
-      youtube: 'https://www.youtube.com/',
+      linkedin: false,
+      instagram: false,
+      twitter: false,
+      facebook: false,
+      youtube: false,
     },
   };
 
