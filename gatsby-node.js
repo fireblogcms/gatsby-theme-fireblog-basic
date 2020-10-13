@@ -55,24 +55,7 @@ exports.createPages = async ({ graphql, actions }, themeOptions) => {
               filter: $filter
               sort: { publishedAt: desc }
             ) {
-              teaser
               slug
-              title
-              content
-              publishedAt
-              updatedAt
-              image(auto: [compress, format]) {
-                url
-              }
-              imagePostList: image(
-                w: 400
-                h: 220
-                fit: crop
-                crop: center
-                auto: [compress, format]
-              ) {
-                url
-              }
             }
           }
         }
