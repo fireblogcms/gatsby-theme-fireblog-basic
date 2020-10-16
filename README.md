@@ -146,7 +146,7 @@ module.exports = {
     ],
     readMoreText: 'Read more',
     followUsText: 'Follow us',
-    recentPostsText: 'Articles récents',
+    recentPostsText: 'Latest posts',
 
     // links to your social accounts.
     // @see components/socials.js
