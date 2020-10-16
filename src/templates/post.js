@@ -7,9 +7,12 @@ import ClockIcon from '../components/ClockIcon';
 function PostTemplate({ data, location, pageContext }) {
   const { blogPath } = pageContext;
   const { blog, post, recentPosts } = data.fireblog;
+  const { recentPostsText } = data.site.siteMetadata;
+
   return (
     <Layout
       recentPosts={recentPosts}
+      recentPostsText={recentPostsText}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
@@ -47,6 +50,11 @@ export default PostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlugPageQuery($slug: String!, $blog: ID!) {
+    site {
+      siteMetadata {
+        recentPostsText
+      }
+    }
     fireblog {
       blog(filter: { _id: { eq: $blog } }) {
         name

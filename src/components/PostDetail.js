@@ -4,10 +4,11 @@ import HTMLMetadata from './HTMLMetadata';
 import ClockIcon from './ClockIcon';
 import PropTypes from 'prop-types';
 
-function PostDetail({ blog, post, location, recentPosts }) {
+function PostDetail({ blog, post, location, recentPosts, recentPostsText }) {
   return (
     <Layout
       recentPosts={recentPosts}
+      recentPostsText={recentPostsText}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
@@ -44,6 +45,7 @@ PostDetail.propTypes = {
   blog: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   recentPosts: PropTypes.array.isRequired,
+  recentPostsText: PropTypes.string.isRequired,
 };
 
 export default PostDetail;

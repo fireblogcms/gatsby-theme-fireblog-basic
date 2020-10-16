@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-function RecentPosts({ location, posts, blogPath }) {
+function RecentPosts({ location, posts, recentPostsText, blogPath }) {
   // Hide recent posts on homepage for mobile
   const classes = classNames({
     'recent-posts': true,
@@ -11,7 +11,7 @@ function RecentPosts({ location, posts, blogPath }) {
   });
   return (
     <div className={classes}>
-      <h3 className="block-title title is-5">Articles récents</h3>
+      <h3 className="block-title title is-5">{recentPostsText}</h3>
       <ul>
         {posts.map(post => {
           return (
