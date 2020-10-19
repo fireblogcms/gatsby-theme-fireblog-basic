@@ -27,6 +27,7 @@ module.exports = themeOptions => {
     ],
     readMoreText: 'Read more',
     followUsText: 'Follow us',
+    recentPostsText: 'Articles récents',
 
     // links to your social accounts.
     // @see components/socials.js

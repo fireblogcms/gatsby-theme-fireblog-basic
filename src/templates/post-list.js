@@ -10,11 +10,16 @@ function PostListTemplate({ data, location, pageContext }) {
   const blog = data.fireblog.blog;
   const posts = data.fireblog.posts;
   const recentPosts = data.fireblog.recentPosts;
-  const { postsPerPage, readMoreText } = data.site.siteMetadata;
+  const {
+    postsPerPage,
+    readMoreText,
+    recentPostsText,
+  } = data.site.siteMetadata;
 
   return (
     <Layout
       recentPosts={recentPosts}
+      recentPostsText={recentPostsText}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
@@ -84,6 +89,7 @@ export const pageQuery = graphql`
       siteMetadata {
         postsPerPage
         readMoreText
+        recentPostsText
       }
     }
     fireblog {

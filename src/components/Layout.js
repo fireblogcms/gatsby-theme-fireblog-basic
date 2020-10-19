@@ -10,6 +10,7 @@ function Layout({
   headerSubtitle,
   location,
   recentPosts,
+  recentPostsText,
   blogPath,
 }) {
   return (
@@ -33,6 +34,7 @@ function Layout({
                   <RecentPosts
                     location={location}
                     posts={recentPosts}
+                    recentPostsText={recentPostsText}
                     blogPath={blogPath}
                   />
                   <Socials />
