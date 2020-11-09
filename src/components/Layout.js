@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RecentPosts from './RecentPosts';
 import Socials from './Socials';
+import BlogTags from './BlogTags';
 import Header from './Header';
 
 function Layout({
@@ -12,6 +13,7 @@ function Layout({
   recentPosts,
   recentPostsText,
   blogPath,
+  tags,
 }) {
   return (
     <div className="layout">
@@ -37,6 +39,7 @@ function Layout({
                     recentPostsText={recentPostsText}
                     blogPath={blogPath}
                   />
+                  <BlogTags tags={tags} />
                   <Socials />
                 </section>
               </aside>
@@ -62,6 +65,7 @@ Layout.propTypes = {
   location: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
   recentPosts: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
 };
 
 export default Layout;

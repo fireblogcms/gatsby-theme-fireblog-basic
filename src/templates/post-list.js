@@ -7,9 +7,7 @@ import ClockIcon from '../components/ClockIcon';
 
 function PostListTemplate({ data, location, pageContext }) {
   const { postsCount, blogPath } = pageContext;
-  const blog = data.fireblog.blog;
-  const posts = data.fireblog.posts;
-  const recentPosts = data.fireblog.recentPosts;
+  const { blog, posts, recentPosts, tags } = data.fireblog;
   const {
     postsPerPage,
     readMoreText,
@@ -25,6 +23,7 @@ function PostListTemplate({ data, location, pageContext }) {
       headerSubtitle={blog.description}
       image={blog.image ? blog.image.url : null}
       blogPath={blogPath}
+      tags={tags}
     >
       <HTMLMetadata
         location={location}
@@ -106,6 +105,10 @@ export const pageQuery = graphql`
         sort: { publishedAt: desc }
       ) {
         ...recentPosts
+      }
+      tags(blog: $blog) {
+        name
+        slug
       }
       posts(
         limit: $limit

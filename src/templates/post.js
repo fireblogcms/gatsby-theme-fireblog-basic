@@ -3,10 +3,11 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import HTMLMetadata from '../components/HTMLMetadata';
 import ClockIcon from '../components/ClockIcon';
+import Tag from '../components/Tag';
 
 function PostTemplate({ data, location, pageContext }) {
   const { blogPath } = pageContext;
-  const { blog, post, recentPosts } = data.fireblog;
+  const { blog, post, recentPosts, tags } = data.fireblog;
   const { recentPostsText } = data.site.siteMetadata;
 
   return (
@@ -17,6 +18,7 @@ function PostTemplate({ data, location, pageContext }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
       blogPath={blogPath}
+      tags={tags}
     >
       <HTMLMetadata
         title={post.title}
@@ -41,6 +43,9 @@ function PostTemplate({ data, location, pageContext }) {
           className="content"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+        <div className="tags are-medium">
+          {post.tags && post.tags.map(tag => <Tag tag={tag} />)}
+        </div>
       </div>
     </Layout>
   );
@@ -70,6 +75,10 @@ export const pageQuery = graphql`
       ) {
         ...recentPosts
       }
+      tags(blog: $blog) {
+        name
+        slug
+      }
       post(filter: { slug: { eq: $slug }, blog: { eq: $blog } }) {
         title
         publishedAt
@@ -78,6 +87,10 @@ export const pageQuery = graphql`
         publishedAt
         image(w: 900, fit: crop, crop: center, auto: [compress, format]) {
           url
+        }
+        tags {
+          name
+          slug
         }
       }
     }
